@@ -1,0 +1,21 @@
+/* Shopping.css */
+.shopping-container {
+  display: flex;
+  min-height: 100vh;
+  padding: 20px;
+  color: var(--text);
+}
+
+.main-content {
+  flex: 1;
+}
+
+.main-title {
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+}

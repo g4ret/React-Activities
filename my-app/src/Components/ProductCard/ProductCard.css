@@ -1,0 +1,30 @@
+/* ProductCard.css */
+.product-card {
+  margin: 10px;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.product-name {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+}
+
+.product-description {
+  margin: 0 0 15px 0;
+}
+
+.product-price {
+  display: block;
+  font-size: 1.2em;
+  color: #22c55e;
+  margin-bottom: 15px;
+}
+
+/* buttons are themed in App.css */
