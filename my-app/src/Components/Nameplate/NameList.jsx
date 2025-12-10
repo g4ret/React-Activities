@@ -2,28 +2,33 @@ import * as React from 'react';
 // Make sure to import the CSS file!
 import './NameList.css'; 
 
-export default function NameList({ platename, course, year, gender, definition }) {
+export default function NameList({ studName, studentId, course, gender, age }) {
   return (
-    <div className="name-card">
-      <h1 className="name-title">{platename}</h1>
-      
-      <div className="details-grid">
-        <div className="detail-row">
-          <span className="label">Course:</span>
-          <span className="value">{course}</span>
+    <div className="name-card ornate-card">
+      <div className="ornate-overlay" />
+      <div className="name-content">
+        <div className="name-top">
+          <h1 className="name-title">{studName}</h1>
+          <div className="pill id-pill">{studentId}</div>
         </div>
-        <div className="detail-row">
-          <span className="label">Year:</span>
-          <span className="value">{year}</span>
-        </div>
-        <div className="detail-row">
-          <span className="label">Gender:</span>
+
+        <ul className="info-list">
+          <li>
+            <span className="bullet" />
+            <span className="label">Course</span>
+            <span className="value highlight">{course}</span>
+          </li>
+          <li>
+            <span className="bullet" />
+            <span className="label">Gender</span>
           <span className="value">{gender}</span>
-        </div>
-        <div className="detail-row">
-          <span className="label">Definition:</span>
-          <span className="value">{definition}</span>
-        </div>
+          </li>
+          <li>
+            <span className="bullet" />
+            <span className="label">Age</span>
+            <span className="value">{age}</span>
+          </li>
+        </ul>
       </div>
     </div>
   );

@@ -1,98 +1,170 @@
-:root {
-  /* The main background color (Creamy/Off-white) */
-  --surface: #EFEEEE;
-  
-  /* The Light Brown accent color (from the screenshot buttons) */
-  --brown-accent: #D7C0A5;
-  
-  /* Text Colors */
-  --text-main: #6D5D53;
-  --text-muted: #9E8E83;
-  --text-active: #FFFFFF; /* White text on the brown button */
-
-  /* Shadows for the creamy background */
-  /* Darker shadow (bottom-right) */
-  --shadow-dark: #C6C2BC; 
-  /* Lighter shadow (top-left) */
-  --shadow-light: #FFFFFF;
-
-  /* Shadows specifically for the Brown Button (Active State) */
-  --brown-shadow-dark: #b6a38c;
-  --brown-shadow-light: #f8ddbe;
-}
-
 .side-nav {
-  width: 240px;
+  width: 260px;
   height: 100vh;
-  background: var(--surface);
+  background: linear-gradient(180deg, #0f1833 0%, #0a1226 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
-  padding: 24px 20px; /* Increased padding slightly for look */
+  padding: 32px 22px;
   position: fixed;
   left: 0;
   top: 0;
-  overflow: hidden;
-  /* Soft shadow on the right side of the nav */
-  box-shadow: 12px 0 24px var(--shadow-dark);
-  font-family: sans-serif; /* Ensure a clean font */
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  gap: 18px;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.brand { 
-  color: var(--text-main); 
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7c8cff 0%, #4f6bff 100%);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(76, 107, 255, 0.35);
+}
+
+.brand-text {
+  display: grid;
+  gap: 4px;
+}
+
+.brand-name {
+  font-weight: 800;
+  font-size: 16px;
+  color: #e8ecff;
+  letter-spacing: -0.2px;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: #9aa6c7;
+}
+
+.profile-card {
+  padding: 14px 14px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c8cff 0%, #4f6bff 100%);
+  display: grid;
+  place-items: center;
+  color: #0d1221;
   font-weight: 800; 
-  font-size: 22px; 
-  letter-spacing: 0.5px; 
-  margin-bottom: 30px; 
-  padding-left: 10px;
+  box-shadow: 0 8px 20px rgba(76, 107, 255, 0.35);
+}
+
+.profile-info {
+  display: grid;
+  gap: 2px;
+}
+
+.profile-name {
+  font-weight: 700;
+  color: #e8ecff;
+  font-size: 14px;
+}
+
+.profile-meta {
+  font-size: 12px;
+  color: #9aa6c7;
 }
 
 .nav-links { 
   display: flex; 
   flex-direction: column; 
-  gap: 16px; 
+  gap: 8px; 
 }
 
-/* --- DEFAULT LINK STYLE --- */
 .link {
-  color: var(--text-muted);
+  color: #c7d2ff;
   text-decoration: none;
-  padding: 14px 20px;
-  border-radius: 50px; /* Fully rounded 'pill' shape like the image */
-  background: var(--surface);
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: transparent;
   font-weight: 600;
-  font-size: 15px;
-  
-  /* The "Raised" Neumorphic Effect */
-  box-shadow: 
-    6px 6px 12px var(--shadow-dark), 
-    -6px -6px 12px var(--shadow-light);
-    
-  transition: all 0.3s ease;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 0 rgba(255,107,53,0);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.05);
+  color: #f4f6ff;
+  font-size: 13px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .link:hover { 
-  color: var(--brown-accent);
-  transform: translateY(-2px); /* Slight lift on hover */
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
-/* --- ACTIVE STATE (The Light Brown Button) --- */
-.link.active {
-  background-color: var(--brown-accent);
-  color: var(--text-active);
-  
-  /* Option A: If you want it to look "Pressed In" (Inset) 
-     Uncomment the line below and remove Option B.
-  */
-  /* box-shadow: inset 4px 4px 8px var(--brown-shadow-dark), inset -4px -4px 8px var(--brown-shadow-light); */
+.link:hover .icon {
+  background: linear-gradient(135deg, #7c8cff 0%, #4f6bff 100%);
+  box-shadow: 0 6px 12px rgba(76,107,255,0.35);
+}
 
-  /* Option B: If you want it to look "Raised" but colored (Like the 'BUTTON' in your image)
-     Use this one:
-  */
-  box-shadow: 
-    6px 6px 12px var(--shadow-dark), 
-    -6px -6px 12px var(--shadow-light);
-  
-  transform: translateY(0); /* Reset lift */
+.link.active {
+  background: linear-gradient(135deg, rgba(124, 140, 255, 0.16) 0%, rgba(79, 107, 255, 0.16) 100%);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35), 0 6px 16px rgba(76, 107, 255, 0.28);
+}
+
+.link.active .icon {
+  background: linear-gradient(135deg, #7c8cff 0%, #4f6bff 100%);
+  box-shadow: 0 6px 12px rgba(76,107,255,0.35);
+}
+
+.link.active::after {
+  background: #7c8cff;
+  box-shadow: 0 0 12px rgba(124,140,255,0.6);
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Calculator.css';
 
 export default function Calculator() {
@@ -84,7 +84,7 @@ export default function Calculator() {
   const calculate = () => {
     if (expression === '') return;
     try {
-      const value = eval(expression);
+      const value = evaluateLeftToRight(expression);
       if (value === undefined || isNaN(value)) {
         alert('Invalid calculation');
         return;
@@ -110,11 +110,44 @@ export default function Calculator() {
     calculateLiveResult(next);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const key = e.key;
+      if (/\d/.test(key)) {
+        inputNumber(key);
+        return;
+      }
+      if (key === '.') {
+        inputDecimal();
+        return;
+      }
+      if (['+', '-', '*', '/'].includes(key)) {
+        inputOperator(key);
+        return;
+      }
+      if (key === 'Enter' || key === '=') {
+        e.preventDefault();
+        calculate();
+        return;
+      }
+      if (key === 'Backspace') {
+        deleteLast();
+        return;
+      }
+      if (key === 'Escape') {
+        clearAll();
+        return;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
+
   return (
     <div className="calculator-wrapper">
       <div className="calculator">
         <div className="header">
-          <h2>GEE CALIPH A. JUEN</h2>
           <h1>CALCULATOR</h1>
         </div>
         <div className="display-container">

@@ -47,17 +47,50 @@ export default function QuizMaker({ onSaveQuiz }) {
   return (
     <div className="panel">
       <style>{`
-        .panel { max-width: 720px; margin: 0 auto; text-align: left; background: var(--surface); border-radius: 16px; padding: 1rem; box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light); }
-        .text-input { width: 100%; padding: 0.5rem 0.75rem; border-radius: 12px; border: none; background: var(--surface); color: var(--text); box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light); }
-        .option-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
-        .radio { display: flex; align-items: center; gap: 0.35rem; }
-        .btn { padding: 0.5rem 0.9rem; border-radius: 12px; border: none; background: var(--surface); color: var(--text); box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light); }
-        .btn.primary { background: var(--accent); color: #fff; box-shadow: 6px 6px 12px rgba(76,110,245,0.35), -6px -6px 12px rgba(255,255,255,0.7); }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-        .actions { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+        .panel {
+          max-width: 960px;
+          margin: 0 auto;
+          text-align: left;
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 16px;
+          padding: 24px 28px;
+          box-shadow: var(--shadow-md);
+        }
+        .form-group { margin-bottom: 16px; }
+        .text-input {
+          width: 100%;
+          padding: 12px 14px;
+          border-radius: 10px;
+          border: 1px solid var(--border);
+          background: var(--bg);
+          color: var(--text);
+          transition: all 0.2s ease;
+        }
+        .text-input:focus {
+          outline: none;
+          border-color: var(--accent);
+          box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2), 0 0 15px rgba(255, 107, 53, 0.3);
+        }
+        .options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+        .option-row {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 12px;
+          align-items: center;
+        }
+        .radio {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          color: var(--text);
+          font-weight: 600;
+        }
+        .radio input { accent-color: var(--accent); }
+        .actions { display: flex; gap: 12px; margin-top: 16px; }
         .muted { color: var(--muted); }
         .small { color: var(--muted); font-size: 0.9rem; }
-        .question-list { list-style: none; padding: 0; }
+        .question-list { list-style: none; padding: 0; margin-top: 12px; }
         .question-list li { margin: 0.5rem 0; }
       `}</style>
       <h2>Quiz Maker</h2>
